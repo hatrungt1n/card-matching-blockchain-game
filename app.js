@@ -123,10 +123,12 @@ function checkMatch() {
 function flipCard() {
     const cardId = this.getAttribute('data-id')
 
-    cardChosen.push(cardArray[cardId].name)
-    cardChosenId.push(cardId)
-    console.log(cardChosen)
-    this.setAttribute("src", cardArray[cardId].img)
+    if (cardChosen.length < 2) {
+        cardChosen.push(cardArray[cardId].name)
+        cardChosenId.push(cardId)
+        console.log(cardChosen)
+        this.setAttribute("src", cardArray[cardId].img)
+    }
     if (cardChosen.length == 2) {
         this.removeEventListener("click", flipCard)
         setTimeout(checkMatch, 500)
