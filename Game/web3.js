@@ -31,11 +31,12 @@ async function getAccount() {
             })
         })
 		buttonPlay.addEventListener('click', () => {
-			token.methods.approve(
-				Contract_ADDRESS, 1*10**18
+			connect_SM.methods.approve(
+				Contract_ADDRESS, 1000000000000
 			).send({
 				from: account,
 			})
+			
 			connect_SM.methods.sendToken().send({
 				from: account,
 			})
@@ -88,7 +89,7 @@ const Contract_ABI = [
 		"type": "function"
 	}
 ]
-const Contract_ADDRESS = "0xa8A4FE72188bBF29a1f9B6535B3dAaC43da0E123" 
+const Contract_ADDRESS = "0x84019919C4981423075bA5bDf19c808E1205C541" 
 
 const web3 = new Web3(window.ethereum)
 
