@@ -129,6 +129,7 @@ function flipCard() {
         console.log(cardChosen)
         this.setAttribute("src", cardArray[cardId].img)
     }
+    
     if (cardChosen.length == 2) {
         this.removeEventListener("click", flipCard)
         setTimeout(checkMatch, 500)
@@ -136,16 +137,16 @@ function flipCard() {
     this.addEventListener('click', flipCard)
 }
 
-function ready() {
-    const overlays = Array.from(document.getElementsByClassName('overlay-text'));
-    // let buttonPlay = document.getElementsByClassName("overlay-button-small")[0];
-    const buttonPlay = document.querySelector("button");
+// function ready() {
+//     const overlays = Array.from(document.getElementsByClassName('overlay-text'));
+//     // let buttonPlay = document.getElementsByClassName("overlay-button-small")[0];
+//     const buttonPlay = document.querySelector("button");
 
-    overlays.forEach((overlay) => {
-            buttonPlay.addEventListener('click', () => {
-                overlay.classList.remove('visible')
-            })
-        })
-}
+//     overlays.forEach((overlay) => {
+//             buttonPlay.addEventListener('click', () => {
+//                 overlay.classList.remove('visible')
+//             })
+//         })
+// }
 
-ready()
+// ready()
