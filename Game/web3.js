@@ -327,7 +327,7 @@ const TOKEN_CONTRACT_ABI = [
 		"type": "function"
 	}
 ];
-const SMART_CONTRACT_ADDRESS = "0x903df351A33757ccb97A60226762c94991EEA3e0";
+const SMART_CONTRACT_ADDRESS = "0x5b405C99fA8F3501d08F669F76B4Db29Fa818D58";
 const TOKEN_CONTRACT_ADDRESS = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
 
 const ethereumButton = document.querySelector(".enableEthereumButton");
