@@ -1,4 +1,4 @@
-const Contract_ABI = [
+const SMART_CONTRACT_ABI = [
 	{
 	  inputs: [],
 	  name: "getToken",
@@ -38,8 +38,7 @@ const Contract_ABI = [
 	  type: "function",
 	},
 ];
-
-const CONTRACT_TOKEN_ABI = [
+const TOKEN_CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -347,6 +346,8 @@ const CONTRACT_TOKEN_ABI = [
 		"type": "function"
 	}
 ];
+const SMART_CONTRACT_ADDRESS = "0x84019919C4981423075bA5bDf19c808E1205C541";
+const TOKEN_CONTRACT_ADDRESS = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
 
 const ethereumButton = document.querySelector(".enableEthereumButton");
 ethereumButton.textContent = "Connect";
@@ -355,7 +356,12 @@ const numOfTokenDisplay = document.querySelector(".token");
 const get_Token = document.querySelector(".getToken");
 const buttonPlay = document.querySelector(".overlay-button-small");
 
-  // check if user have installed metamask or not
+const web3 = new Web3(window.ethereum);
+
+const connect_SM = new web3.eth.Contract(SMART_CONTRACT_ABI, SMART_CONTRACT_ADDRESS);
+const contractToken = new web3.eth.Contract(CONTRACT_TOKEN_ABI, TOKEN_CONTRACT_ADDRESS);
+	
+// check if user have installed metamask or not
 function checkMetamask() {
 	if (typeof window.ethereum !== "undefined") {
 		console.log("Metamask is installed!");
@@ -363,59 +369,42 @@ function checkMetamask() {
 		alert("You need to install metamask");
 	}
 }
-const Contract_ADDRESS = "0x84019919C4981423075bA5bDf19c808E1205C541";
-const Contract_ADDRESS_TOKEN = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
+checkMetamask();
 
-const web3 = new Web3(window.ethereum);
-
-const connect_SM = new web3.eth.Contract(Contract_ABI, Contract_ADDRESS);
-const contractToken = new web3.eth.Contract(
-	CONTRACT_TOKEN_ABI,
-	Contract_ADDRESS_TOKEN
-);
-
-// get metamask account from user
 async function getAccount() {
 	const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 	const account = accounts[0];
-	if (account) {
-		ethereumButton.textContent = "Connected";
-		addressDisplay.textContent = "Your address: " + account;
-		numOfTokenDisplay.textContent =
-		"You have: " +
-		web3.utils.fromWei(
-			await contractToken.methods.balanceOf(account).call(),
-			"ether"
-		) +
-		" T1N";
 
-		get_Token.addEventListener("click", () => {
-			connect_SM.methods.getToken().send({
-				from: account,
-			});
-		});
+	ethereumButton.textContent = "Connected";
+	addressDisplay.textContent = "Your address: " + account;
+	numOfTokenDisplay.textContent = "You have: " + web3.utils.fromWei(
+		await contractToken.methods.balanceOf(account).call(),
+		"ether") + " T1N";
 
-		// const isAllowance = await contractToken.methods.allowance(account, Contract_ADDRESS).call()
-		
-		buttonPlay.addEventListener("click", () => {
-			if (isAllowance < 1) {
-				contractToken.methods
-				.approve(
-					Contract_ADDRESS,
-					web3.utils.toHex(web3.utils.toWei(String(1 * 10), "ether"))
-				)
-				.send({
-					from: account,
-				});
-			}
-			connect_SM.methods.sendToken().send({
-				from: account,
-			});
+	get_Token.addEventListener("click", () => {
+		connect_SM.methods.getToken().send({
+			from: account,
 		});
-	}
-}
+	});
+	
+	// buttonPlay.addEventListener("click", async () => {
+	// 	const isAllowance = await contractToken.methods.allowance(account, Contract_ADDRESS).call()
+	// 	if (isAllowance < 1) {
+	// 		await contractToken.methods
+	// 		.approve(
+	// 			Contract_ADDRESS,
+	// 			web3.utils.toHex(web3.utils.toWei(String(1 * 10), "ether"))
+	// 		)
+	// 		.send({
+	// 			from: account,
+	// 		});
+	// 	}
+	// 	await connect_SM.methods.sendToken().send({
+	// 		from: account,
+	// 	});
+	// });
+}	
 
 ethereumButton.addEventListener("click", () => {
-	checkMetamask();
-	getAccount();
+	getAccount();	
 });
