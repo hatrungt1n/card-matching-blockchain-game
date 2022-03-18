@@ -359,7 +359,7 @@ const buttonPlay = document.querySelector(".overlay-button-small");
 const web3 = new Web3(window.ethereum);
 
 const connect_SM = new web3.eth.Contract(SMART_CONTRACT_ABI, SMART_CONTRACT_ADDRESS);
-const contractToken = new web3.eth.Contract(CONTRACT_TOKEN_ABI, TOKEN_CONTRACT_ADDRESS);
+const contractToken = new web3.eth.Contract(TOKEN_CONTRACT_ABI, TOKEN_CONTRACT_ADDRESS);
 	
 // check if user have installed metamask or not
 function checkMetamask() {
