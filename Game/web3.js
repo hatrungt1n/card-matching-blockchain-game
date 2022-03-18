@@ -1,42 +1,23 @@
 const SMART_CONTRACT_ABI = [
 	{
-	  inputs: [],
-	  name: "getToken",
-	  outputs: [],
-	  stateMutability: "nonpayable",
-	  type: "function",
+		"inputs": [],
+		"name": "getToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-	  inputs: [],
-	  name: "sendToken",
-	  outputs: [],
-	  stateMutability: "nonpayable",
-	  type: "function",
+		"inputs": [],
+		"name": "sendToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
-	  inputs: [],
-	  stateMutability: "nonpayable",
-	  type: "constructor",
-	},
-	{
-	  inputs: [
-		{
-		  internalType: "address",
-		  name: "user",
-		  type: "address",
-		},
-	  ],
-	  name: "getBalance",
-	  outputs: [
-		{
-		  internalType: "uint256",
-		  name: "",
-		  type: "uint256",
-		},
-	  ],
-	  stateMutability: "view",
-	  type: "function",
-	},
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
 ];
 const TOKEN_CONTRACT_ABI = [
 	{
@@ -346,7 +327,7 @@ const TOKEN_CONTRACT_ABI = [
 		"type": "function"
 	}
 ];
-const SMART_CONTRACT_ADDRESS = "0x84019919C4981423075bA5bDf19c808E1205C541";
+const SMART_CONTRACT_ADDRESS = "0x903df351A33757ccb97A60226762c94991EEA3e0";
 const TOKEN_CONTRACT_ADDRESS = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
 
 const ethereumButton = document.querySelector(".enableEthereumButton");
@@ -374,12 +355,13 @@ checkMetamask();
 async function getAccount() {
 	const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 	const account = accounts[0];
+	const getBalance = web3.utils.fromWei(
+		await contractToken.methods.balanceOf(account).call(),
+		"ether");
 
 	ethereumButton.textContent = "Connected";
 	addressDisplay.textContent = "Your address: " + account;
-	numOfTokenDisplay.textContent = "You have: " + web3.utils.fromWei(
-		await contractToken.methods.balanceOf(account).call(),
-		"ether") + " T1N";
+	numOfTokenDisplay.textContent = "You have: " + getBalance + " T1N";
 
 	get_Token.addEventListener("click", () => {
 		connect_SM.methods.getToken().send({
