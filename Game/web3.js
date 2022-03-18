@@ -9,7 +9,13 @@ const SMART_CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"name": "sendToken",
-		"outputs": [],
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "status",
+				"type": "bool"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -327,7 +333,7 @@ const TOKEN_CONTRACT_ABI = [
 		"type": "function"
 	}
 ];
-const SMART_CONTRACT_ADDRESS = "0x5b405C99fA8F3501d08F669F76B4Db29Fa818D58";
+const SMART_CONTRACT_ADDRESS = "0xdbEa9bdF48E101bbde67a97b6470450f73E14A47";
 const TOKEN_CONTRACT_ADDRESS = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
 
 const ethereumButton = document.querySelector(".enableEthereumButton");
@@ -336,6 +342,8 @@ const addressDisplay = document.querySelector(".address");
 const numOfTokenDisplay = document.querySelector(".token");
 const get_Token = document.querySelector(".getToken");
 const buttonPlay = document.querySelector(".overlay-button-small");
+const overlays = Array.from(document.getElementsByClassName('overlay-text'));
+
 
 const web3 = new Web3(window.ethereum);
 
@@ -381,9 +389,14 @@ async function getAccount() {
 				from: account,
 			});
 		}
-		await connect_SM.methods.sendToken().send({
+		const status = await connect_SM.methods.sendToken().send({
 			from: account,
 		});
+		if(status) {
+			overlays.forEach((overlay) => {
+				overlay.classList.remove('visible')
+			})
+		}
 	});
 }	
 
