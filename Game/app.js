@@ -1,67 +1,123 @@
 const cardArray = [
     {
-        name: 'fries',
-        img: 'images/fries.png',
+        name: 'alpaca',
+        img: 'images/alpaca.webp',
     },
     {
-        name: 'cheeseburger',
-        img: 'images/cheeseburger.png',
+        name: 'bear',
+        img: 'images/bear.webp',
     },
     {
-        name: 'hotdog',
-        img: 'images/hotdog.png',
+        name: 'cat',
+        img: 'images/cat.webp',
     },
     {
-        name: 'ice-cream',
-        img: 'images/ice-cream.png',
+        name: 'corgi',
+        img: 'images/corgi.webp',
     },
     {
-        name: 'milkshake',
-        img: 'images/milkshake.png',
+        name: 'duck',
+        img: 'images/duck.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'kirakuya',
+        img: 'images/kirakuya.webp',
     },
     {
-        name: 'fries',
-        img: 'images/fries.png',
+        name: 'lion',
+        img: 'images/lion.webp',
     },
     {
-        name: 'cheeseburger',
-        img: 'images/cheeseburger.png',
+        name: 'moose',
+        img: 'images/moose.webp',
     },
     {
-        name: 'hotdog',
-        img: 'images/hotdog.png',
+        name: 'octopus',
+        img: 'images/octopus.webp',
     },
     {
-        name: 'ice-cream',
-        img: 'images/ice-cream.png',
+        name: 'penguin',
+        img: 'images/penguin.webp',
     },
     {
-        name: 'milkshake',
-        img: 'images/milkshake.png',
+        name: 'pomsky',
+        img: 'images/pomsky.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'rabbit',
+        img: 'images/rabbit.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'squirrel',
+        img: 'images/squirrel.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'stork',
+        img: 'images/stork.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'yogaBear',
+        img: 'images/yogaBear.webp',
     },
     {
-        name: 'pizza',
-        img: 'images/pizza.png',
+        name: 'alpaca',
+        img: 'images/alpaca.webp',
+    },
+    {
+        name: 'bear',
+        img: 'images/bear.webp',
+    },
+    {
+        name: 'cat',
+        img: 'images/cat.webp',
+    },
+    {
+        name: 'corgi',
+        img: 'images/corgi.webp',
+    },
+    {
+        name: 'duck',
+        img: 'images/duck.webp',
+    },
+    {
+        name: 'kirakuya',
+        img: 'images/kirakuya.webp',
+    },
+    {
+        name: 'lion',
+        img: 'images/lion.webp',
+    },
+    {
+        name: 'moose',
+        img: 'images/moose.webp',
+    },
+    {
+        name: 'octopus',
+        img: 'images/octopus.webp',
+    },
+    {
+        name: 'penguin',
+        img: 'images/penguin.webp',
+    },
+    {
+        name: 'pomsky',
+        img: 'images/pomsky.webp',
+    },
+    {
+        name: 'rabbit',
+        img: 'images/rabbit.webp',
+    },
+    {
+        name: 'squirrel',
+        img: 'images/squirrel.webp',
+    },
+    {
+        name: 'stork',
+        img: 'images/stork.webp',
+    },
+    {
+        name: 'yogaBear',
+        img: 'images/yogaBear.webp',
     },
 ]
 
@@ -79,7 +135,7 @@ let cardWons = []
 function createBoard() {
     for (let i=0; i < cardArrayLength; i++) {
         const card = document.createElement("img")
-        card.setAttribute("src", "images/blank.png")
+        card.setAttribute("src", "images/blank.jpg")
         card.setAttribute("data-id", i)
         card.addEventListener("click", flipCard)
         gridDisplayed.append(card)
@@ -108,8 +164,8 @@ function checkMatch() {
         result++
         score.textContent = result
     } else { 
-        cards[optionOneId].setAttribute("src", "images/blank.png")
-        cards[optionTwoId].setAttribute("src", "images/blank.png")
+        cards[optionOneId].setAttribute("src", "images/blank.jpg")
+        cards[optionTwoId].setAttribute("src", "images/blank.jpg")
     }
 
     cardChosen = []
@@ -136,17 +192,3 @@ function flipCard() {
     }
     this.addEventListener('click', flipCard)
 }
-
-// function ready() {
-//     const overlays = Array.from(document.getElementsByClassName('overlay-text'));
-//     // let buttonPlay = document.getElementsByClassName("overlay-button-small")[0];
-//     const buttonPlay = document.querySelector("button");
-
-//     overlays.forEach((overlay) => {
-//             buttonPlay.addEventListener('click', () => {
-//                 overlay.classList.remove('visible')
-//             })
-//         })
-// }
-
-// ready()

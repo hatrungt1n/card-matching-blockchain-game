@@ -1,15 +1,21 @@
-/* body {
-    max-width: max-content;
-    margin: auto;
-} */
+body {
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
 
 #grid {
     display: flex;
     flex-wrap: wrap;
-    width: 640px;
-    height: 640px;
+    width: 960px;
+    height: 800px;
     max-width: max-content;
     margin: auto;
+}
+
+h1 {
+    color: aliceblue;
 }
 
 img {
