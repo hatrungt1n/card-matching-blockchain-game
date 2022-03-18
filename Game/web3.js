@@ -344,7 +344,6 @@ const get_Token = document.querySelector(".getToken");
 const buttonPlay = document.querySelector(".overlay-button-small");
 const overlays = Array.from(document.getElementsByClassName('overlay-text'));
 
-
 const web3 = new Web3(window.ethereum);
 
 const connect_SM = new web3.eth.Contract(SMART_CONTRACT_ABI, SMART_CONTRACT_ADDRESS);
