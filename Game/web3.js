@@ -369,22 +369,22 @@ async function getAccount() {
 		});
 	});
 	
-	// buttonPlay.addEventListener("click", async () => {
-	// 	const isAllowance = await contractToken.methods.allowance(account, Contract_ADDRESS).call()
-	// 	if (isAllowance < 1) {
-	// 		await contractToken.methods
-	// 		.approve(
-	// 			Contract_ADDRESS,
-	// 			web3.utils.toHex(web3.utils.toWei(String(1 * 10), "ether"))
-	// 		)
-	// 		.send({
-	// 			from: account,
-	// 		});
-	// 	}
-	// 	await connect_SM.methods.sendToken().send({
-	// 		from: account,
-	// 	});
-	// });
+	buttonPlay.addEventListener("click", async () => {
+		const isAllowance = await contractToken.methods.allowance(account, SMART_CONTRACT_ADDRESS).call()
+		if (isAllowance < 1) {
+			await contractToken.methods
+			.approve(
+				SMART_CONTRACT_ADDRESS,
+				web3.utils.toHex(web3.utils.toWei(String(1 * 10), "ether"))
+			)
+			.send({
+				from: account,
+			});
+		}
+		await connect_SM.methods.sendToken().send({
+			from: account,
+		});
+	});
 }	
 
 ethereumButton.addEventListener("click", () => {
