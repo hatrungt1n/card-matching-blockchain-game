@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Memory Game</title>
+</head>
+<body>
+    <h1>Score: <span id="result">0</span></h1>
+
+    <div class="overlay-text visible">
+        Welcome to Memory Game!
+        <div class="connect">
+            <button class="overlay-button-small">Play now</button>
+            <span class="small">You will need at least 1 token to start.</span>
+        </div>
+        <div>
+            <div class="overlay-button-smaller">
+                <div class="connect">
+                    <button class="web3-button enableEthereumButton"></button>
+                    <span class="smaller address"></span>
+                </div>
+            </div>
+            <div class="overlay-button-smaller">
+                <div class="get">
+                    <button class="web3-button getToken">Get T1N</button>
+                    <span class="smaller token"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-text" class="overlay-text">
+        Victory
+        <button class="overlay-button-small" onclick="location.reload()">Play again</button>
+    </div>
+    
+    <div id="grid"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    <script src="web3.js"></script>
+</body>
+</html>
