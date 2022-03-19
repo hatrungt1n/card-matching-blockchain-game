@@ -188,7 +188,7 @@ function flipCard() {
     
     if (cardChosen.length == 2) {
         this.removeEventListener("click", flipCard)
-        setTimeout(checkMatch, 500)
+        setTimeout(checkMatch, 1000)
     }
     this.addEventListener('click', flipCard)
 }
