@@ -158,6 +158,8 @@ function checkMatch() {
         cards[optionTwoId].setAttribute("src", "images/white.png")
         cards[optionOneId].removeEventListener("click", flipCard)
         cards[optionTwoId].removeEventListener("click", flipCard)
+        cards[optionOneId].style.cursor = "default"
+        cards[optionTwoId].style.cursor = "default"
 
         cardWons.push(cardChosen)
 
