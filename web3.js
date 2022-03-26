@@ -23,8 +23,27 @@ const SMART_CONTRACT_ABI = [
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "lockTime",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	}
-];
+]
 const TOKEN_CONTRACT_ABI = [
 	{
 		"inputs": [],
@@ -333,7 +352,7 @@ const TOKEN_CONTRACT_ABI = [
 		"type": "function"
 	}
 ];
-const SMART_CONTRACT_ADDRESS = "0xdbEa9bdF48E101bbde67a97b6470450f73E14A47";
+const SMART_CONTRACT_ADDRESS = "0x445CF80D61d9613A3f2dDb96D28aAd59eCbdB9a1";
 const TOKEN_CONTRACT_ADDRESS = "0x2195dbFCBE8Dd18242eF6Aa8D976B69cFaC3cFE2";
 
 const ethereumButton = document.querySelector(".enableEthereumButton");
