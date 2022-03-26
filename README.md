@@ -4,5 +4,5 @@
 
 2. Add bsc testnet to your metamask
 3. Faucet your bsc testnet for fees
-4. Connect your wallet to the website and get T1N tokens to your wallet
+4. Connect your wallet to the website and get T1N tokens to your wallet (1 get per 24h)
 5. Play now
